@@ -4,10 +4,13 @@
  * Module dependencies.
  */
 require("babel-register");
+require('dotenv').config();
 var app = require('../app');
 var debug = require('debug')('chitchat:server');
 var http = require('http');
-var socketApi = require('../socketApi');
+var socketApi = require('../sockets/socketApi');
+var mongoose = require('mongoose');
+var config = require('../../config');
 
 // require("babel-register");
 // import app from '../app';
@@ -39,6 +42,13 @@ server.on('listening', onListening);
 
 //Socket IO Integration
 socketApi.io.listen(server);
+
+//Moongoose Integration
+mongoose.connect(config.db.connectionURL);
+mongoose.connection
+    .on('error', ()=>{console.log('mongo nconnected')})
+    .once('open',()=>{console.log('mongo connected')});
+
 
 /**
  * Normalize a port into a number, string, or false.
