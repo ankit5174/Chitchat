@@ -7,5 +7,8 @@ module.exports = {
         clientPort: 3000,
         serverPort: 8080,
         serverHost: 'http://localhost'
+    },
+    socket: {
+        socketServerURL: 'http://localhost:3000'
     }
 };

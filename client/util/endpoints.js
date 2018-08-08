@@ -1,3 +1,4 @@
-export default endpoints = {
-    signupUrl: `${window.location.host}`
-}
+export const endpoints = {
+    signupUrl: `http://${window.location.host}/api/signup`,
+    signinUrl: `http://${window.location.host}/api/signin`
+};

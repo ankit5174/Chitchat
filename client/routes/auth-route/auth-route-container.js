@@ -7,7 +7,7 @@ import authenticationReducer from "../../redux/authentication/authentication-red
 
 function mapStateToProps(state, props) {
     return {
-        isLoggedIn: state.authenticationReducer.isLoggedIn,
+        isLoggedIn: state.userReducer.isLoggedIn,
         currentUrl: props.location.pathname
     }
 }

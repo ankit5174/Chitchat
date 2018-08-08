@@ -5,5 +5,8 @@ module.exports = {
     app: {
         serverPort: 8080,
         serverHost: 'http://localhost'
+    },
+    socket: {
+        socketServerURL: 'http://localhost:8080'
     }
 };

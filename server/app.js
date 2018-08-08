@@ -7,7 +7,7 @@ import passport from 'passport';
 import session from 'express-session';
 import passportConfig from './passport/passport';
 
-import indexRouter from './routes/index';
+import indexRouter from './routes/authentication';
 import usersRouter from'./routes/users';
 
 let app = express();

@@ -1,6 +1,17 @@
+/*I love me some border-box*/
+* {
+    box-sizing: border-box;
+}
+
+/*This just stops me getting horizontal scrolling if anything overflows the width*/
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  overflow-x: hidden !important;
+    overflow-x: hidden;
+}
+
+/*Just removing default browser padding/margin*/
+html,
+body {
+    padding: 0;
+    margin: 0;
+    color: #ebebeb;
 }

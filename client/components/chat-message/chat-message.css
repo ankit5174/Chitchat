@@ -1,0 +1,17 @@
+.chat-message {
+    flex-shrink: 0;
+    display: inline-flex;
+    margin: 25px 25px 0 25px;
+}
+
+.chat-message.reverse {
+    flex-direction: row-reverse;
+}
+
+.chat-message > img {
+    width: 50px;
+    height: 50px;
+}
+.chat-message > p {
+    padding: 10px;
+}

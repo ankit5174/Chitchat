@@ -1,0 +1,44 @@
+.chat-window-conatiner {
+    display: flex;
+    height: auto;
+    overflow: hidden;
+    flex-direction: column;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+
+.chat-messages {
+    height: calc(100vh - 62px);
+    /*flex-grow:10;*/
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-input-message {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #e74c3c;
+    /*padding: 10px 12px 10px 12px;*/
+    /*-moz-appearance: textfield;*/
+    /*-webkit-appearance: textfield;*/
+    /*border: 1px solid darkgray;*/
+    /*font: -moz-field;*/
+    /*margin-top: 5px;*/
+}
+
+.chat-input-message > textarea {
+    flex-grow: 10;
+    border: none;
+    /*-ms-transform: rotate(360deg); !* IE 9 *!*/
+    /*-webkit-transform: rotate(360deg); !* Safari *!*/
+    /*transform: rotate(360deg); !* Standard syntax *!*/
+}

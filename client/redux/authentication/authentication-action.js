@@ -5,19 +5,13 @@ export const actionTypes = {
     LOGIN_WITH_PASSWORD:'LOGIN_WITH_PASSWORD',
     LOGIN_WITH_PASSWORD_SUCCESS:'LOGIN_WITH_PASSWORD_SUCCESS',
     LOGIN_WITH_PASSWORD_FAILED:'LOGIN_WITH_PASSWORD_FAILED',
-    SET_LOGIN_STATUS: 'SET_LOGIN_STATUS',
-    // LOGIN_WITH_GOOGLE: 'LOGIN_WITH_GOOGLE',
-    // LOGIN_WITH_GOOGLE_SUCCESS: 'LOGIN_WITH_GOOGLE_SUCCESS',
-    // LOGIN_WITH_GOOGLE_FAILED: 'LOGIN_WITH_GOOGLE_FAILED',
-    // SEND_RESET_PASSWORD_MAIL: 'SEND_RESET_PASSWORD_MAIL',
-    // SEND_RESET_PASSWORD_MAIL_SUCCESS: 'SEND_RESET_PASSWORD_MAIL_SUCCESS',
-    // SEND_RESET_PASSWORD_MAIL_FAILED: 'SEND_RESET_PASSWORD_MAIL_FAILED',
     CLEAR_AUTHENTICATION: 'CLEAR_AUTHENTICATION'
 };
 
-export const createUser = (email, password) => {
+export const createUser = (name, email, password) => {
     return {
         type: actionTypes.CREATE_USER,
+        name: name,
         email: email,
         password: password
     }
@@ -59,10 +53,9 @@ export const loginWithPasswordFailed = (response) => {
     }
 };
 
-export const setLoginStatus = (status) => {
+export const clearAuthentication = () => {
     return {
-        type: actionTypes.SET_LOGIN_STATUS,
-        status: status
+        type: actionTypes.CLEAR_AUTHENTICATION
     }
 };
 
@@ -107,8 +100,3 @@ export const setLoginStatus = (status) => {
 //     }
 // };
 //
-// export const clearAuthentication = () => {
-//     return {
-//         type: actionTypes.CLEAR_AUTHENTICATION
-//     }
-// };

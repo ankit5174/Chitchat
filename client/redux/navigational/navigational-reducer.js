@@ -1,7 +1,7 @@
 import {actionTypes} from "./navigational-action";
 
 const DEFAULT_STATE = {
-    redirectUrl: '/home'
+    redirectUrl: '/base-page'
 };
 
 const setRedirectUrl = (state, url) => {

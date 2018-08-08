@@ -21,17 +21,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        createUser: (email, password) => {
-            dispatch(createUser(email, password))
+        createUser: (name, email, password) => {
+            dispatch(createUser(name, email, password))
         },
         loginWithPassword: (email, password) => {
             dispatch(loginWithPassword(email, password))
-        },
-        loginWithGoogle: () => {
-            dispatch(loginWithGoogle());
-        },
-        sendResetPasswordMail: (email) => {
-            dispatch(sendResetPasswordMail(email))
         },
         clearAuthentication: () => {
             dispatch(clearAuthentication())

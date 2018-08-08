@@ -47,14 +47,6 @@ export default class LoginPage extends Component {
                             <Button block type="Submit">Login</Button>
                         </div>
                     </form>
-                    <p className="mt-5 grey-text text-center">or sign in using</p>
-                    <Button className="button-gplus"
-                            onClick={() => {
-                                this.props.loginWithGoogle();
-                            }}>
-                        <i className="fab fa-google-plus-g pr-2"/>
-                        Google +
-                    </Button>
                 </div>
             );
         } else if(this.state.displayComponent === 'sign-up') {
@@ -63,10 +55,15 @@ export default class LoginPage extends Component {
                     <form onSubmit={
                         (event) => {
                             let target = event.target;
-                            this.props.createUser(target.email.value, target.password.value);
+                            this.props.createUser(target.name.value, target.email.value, target.password.value);
                             event.preventDefault();
                         }}
                     >
+                        <Input
+                            id="name"
+                            name="name"
+                            label="Full Name"
+                        />
                         <Input
                             id="email"
                             name="email"
@@ -137,7 +134,7 @@ export default class LoginPage extends Component {
                                 </a>
                             </div>
 
-                            <h2 className="mb-5 text-center">Track Live</h2>
+                            <h2 className="mb-5 text-center">ChitChat</h2>
                             {this.props.errorCode && <p className="red-text">{this.props.errorMessage}</p>}
                             {this.props.messageCode && <p className="red-text">{this.props.message}</p>}
                             {displayComponent}

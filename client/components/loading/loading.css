@@ -1,0 +1,22 @@
+.loading-container {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    overflow-y: hidden;
+}
+
+.loading-container.show {
+    display: flex;
+}
+
+.loading-container-content {
+    margin: auto;
+}

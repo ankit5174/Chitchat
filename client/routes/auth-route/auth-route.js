@@ -15,7 +15,6 @@ class AuthRoute extends Route {
     render() {
         let {isLoggedIn, path} = this.props;
 
-
         if (!isLoggedIn) {
             if (path === '/login') {
                 return <this.props.component/>
