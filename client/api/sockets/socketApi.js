@@ -3,14 +3,12 @@ import cookie from 'react-cookies';
 import {utils} from "../../util/util";
 import {
     getOnlineUsersSuccess, actionTypes, userDisconnected,
-    newUserConnected
-} from "../../redux/chat/socket-actions";
+    newUserConnected, newMessageReceived
+} from "../../redux/chat/chat-actions";
 
-console.log(process.env.NODE_ENV);
 let socketApi = {
     io: io,
     goOnline: (name, email) => {
-        console.log(socketApi);
         if (socketApi.io && !socketApi.socket) {
             if (!cookie.load('user_id') && !cookie.load('user_id')) {
                 cookie.save('user_id', email);
@@ -20,7 +18,6 @@ let socketApi = {
         }
     },
     registerEvent: (eventName, store) => {
-        console.log('en'+eventName);
         switch (eventName) {
             case actionTypes.GET_ONLINE_USERS_SUCCESS:
                 socketApi.socket.on(eventName, (onlineUsers) => {
@@ -35,7 +32,12 @@ let socketApi = {
             case actionTypes.NEW_USER_CONNECTED:
                 socketApi.socket.on(eventName, (connectedUser) => {
                     store.dispatch(newUserConnected(connectedUser));
-                })
+                });
+            case actionTypes.NEW_MESSAGE_RECEIVED:
+                socketApi.socket.on(eventName, (messagePacket) => {
+                    console.log(messagePacket);
+                    store.dispatch(newMessageReceived(messagePacket));
+                });
             default:
                 break;
         }

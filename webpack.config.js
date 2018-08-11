@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const config = require("./config/index");
 const outputDirectory = "dist";
-console.log(process.env.NODE_ENV);
 module.exports = {
     entry: ["babel-polyfill","./client/index.js"],
     output: {

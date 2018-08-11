@@ -1,15 +1,23 @@
 .chat-window-conatiner {
     display: flex;
-    height: auto;
+    height: 100vh;
     overflow: hidden;
     flex-direction: column;
     backface-visibility: hidden;
     will-change: overflow;
 }
 
+.recent-chats {
+    color: #e74c3c;
+    position: absolute;
+    z-index: 11;
+    right: 50px;
+    top: 25px;
+}
+
 .chat-messages {
-    height: calc(100vh - 62px);
-    /*flex-grow:10;*/
+    flex-basis: calc(100vh);
+    flex-grow:10;
     background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
@@ -23,11 +31,11 @@
 }
 
 .chat-input-message {
+    background-color: #f2f2f2;
+    flex-grow: 1;
+    padding: 20px 25px;
     display: flex;
-    flex-direction: column;
-
-    background-color: #e74c3c;
-    /*padding: 10px 12px 10px 12px;*/
+    align-items: center;
     /*-moz-appearance: textfield;*/
     /*-webkit-appearance: textfield;*/
     /*border: 1px solid darkgray;*/
@@ -35,10 +43,10 @@
     /*margin-top: 5px;*/
 }
 
-.chat-input-message > textarea {
-    flex-grow: 10;
-    border: none;
-    /*-ms-transform: rotate(360deg); !* IE 9 *!*/
-    /*-webkit-transform: rotate(360deg); !* Safari *!*/
-    /*transform: rotate(360deg); !* Standard syntax *!*/
+.chat-input-message > textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-input-message > textarea:focus, input:focus{
+    outline: none;
 }

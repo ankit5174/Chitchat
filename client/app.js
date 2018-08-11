@@ -3,8 +3,6 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Routes from "./routes/routes";
 import './App.css';
-
-
 class App extends Component {
 
     render() {

@@ -3,7 +3,6 @@ const DEFAULT_STATE = {
 };
 
 const startLoading = (state) => {
-    console.log('start Lo');
     return {
         ...state,
         loading: true

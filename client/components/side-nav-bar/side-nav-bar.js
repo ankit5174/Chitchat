@@ -22,8 +22,10 @@ export default class SideNavBar extends Component {
 
     getOnlineUserComponent(userId, name) {
         return (
-            <li>
-                <div className="user">
+            <li key={userId}>
+                <div className="user" onClick={(event) => {
+                    this.props.setChattingTo(userId);
+                }}>
                     <span className="name">{name}</span><br/>
                     <span className="user-id">{userId}</span>
                 </div>
@@ -59,6 +61,7 @@ SideNavBar.propTypes = {
     user: PropTypes.object,
     sideNavBarOpen: PropTypes.bool,
     toggleSideNavBar: PropTypes.func,
-    onlineUsers: PropTypes.object
+    onlineUsers: PropTypes.object,
+    setChattingTo: PropTypes.func
 }
 

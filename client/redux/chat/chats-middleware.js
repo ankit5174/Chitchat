@@ -1,4 +1,4 @@
-import {actionTypes} from "./socket-actions";
+import {actionTypes} from "./chat-actions";
 import socketApi from '../../api/sockets/socketApi'
 
 export default store => next => action => {

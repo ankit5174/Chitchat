@@ -9,7 +9,6 @@ import {setLoginStatus} from "../user/user-action";
 import {push} from 'connected-react-router';
 
 export const loginWithPassword = (store, email, password) => {
-    console.log(email, password);
     authentication.loginWithPassword(email, password)
         .then((response) => {
             store.dispatch(loginWithPasswordSuccess(response));

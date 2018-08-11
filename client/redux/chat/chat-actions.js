@@ -6,7 +6,10 @@ export const actionTypes = {
     GET_ONLINE_USERS: "GET_ONLINE_USERS",
     GET_ONLINE_USERS_SUCCESS: "GET_ONLINE_USERS_SUCCESS",
     USER_DISCONNECTED: "USER_DISCONNECTED",
-    NEW_USER_CONNECTED: "NEW_USER_CONNECTED"
+    NEW_USER_CONNECTED: "NEW_USER_CONNECTED",
+    SEND_NEW_MESSAGE: "SEND_NEW_MESSAGE",
+    NEW_MESSAGE_RECEIVED: "NEW_MESSAGE_RECEIVED",
+    SET_CHATTING_TO: "SET_CHATTING_TO"
 };
 
 export const goOnline = () => {
@@ -54,5 +57,26 @@ export const newUserConnected = (connectedUser) => {
     return {
         type: actionTypes.NEW_USER_CONNECTED,
         connectedUser: connectedUser
+    }
+};
+
+export const sendNewMessage = (messagePacket) => {
+    return {
+        type: actionTypes.SEND_NEW_MESSAGE,
+        messagePacket: messagePacket
+    }
+};
+
+export const newMessageReceived = (messagePacket) => {
+    return {
+        type: actionTypes.NEW_MESSAGE_RECEIVED,
+        messagePacket: messagePacket
+    }
+};
+
+export const setChattingTo = (chattingTo) => {
+    return {
+        type: actionTypes.SET_CHATTING_TO,
+        chattingTo: chattingTo
     }
 };

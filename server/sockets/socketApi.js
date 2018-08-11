@@ -29,6 +29,11 @@ io.on('connection', function (socket) {
         socket.emit('GET_ONLINE_USERS_SUCCESS', utilityUtil.getOnlineUsers(users, userId))
     });
 
+    socket.on('SEND_NEW_MESSAGE', (messagePacket) => {
+        console.log(messagePacket);
+        users[messagePacket.to].socket.emit('NEW_MESSAGE_RECEIVED', utilityUtil.getNewMessagePacket(messagePacket));
+    });
+
 
 
     socket.on('disconnect', () => {

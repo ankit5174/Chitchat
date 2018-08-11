@@ -15,5 +15,11 @@ export const utilityUtil = {
             }
         }
         return filteredUsers;
+    },
+    getNewMessagePacket: (messagePacket) => {
+        return {
+            from: messagePacket.from,
+            message: messagePacket.message
+        }
     }
 };

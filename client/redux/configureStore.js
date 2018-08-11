@@ -10,8 +10,8 @@ import authenticationMiddleware from './authentication/authentication-middleware
 import userReducer from './user/user-reducer';
 import userMiddleware from './user/user-middleware';
 import loadingReducer from './loading/loading-reducer';
-import socketMiddleware from './chat/sockets-middleware'
-import socketReducer from './chat/sockets-reducer';
+import chatMiddleware from './chat/chats-middleware'
+import chatReducer from './chat/chats-reducer';
 
 export const history = createHistory();
 
@@ -21,7 +21,7 @@ const rootPersistConfig = {
     key: 'root',
     storage: storage,
     stateReconciler: autoMergeLevel2,
-    blacklist: ['authenticationReducer']
+    blacklist: ['authenticationReducer', 'chatReducer']
 };
 
 export let store = createStore(
@@ -32,14 +32,14 @@ export let store = createStore(
                 authenticationReducer,
                 userReducer,
                 loadingReducer,
-                socketReducer
+                chatReducer
             })
         )),
     applyMiddleware(
         routeMiddleware,
         authenticationMiddleware,
         userMiddleware,
-        socketMiddleware
+        chatMiddleware
     )
 );
 

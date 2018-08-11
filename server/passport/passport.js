@@ -22,7 +22,6 @@ module.exports = function (passport) {
             passReqToCallback: true
         },
         (req, email, password, done) => {
-        console.log(req.body);
             process.nextTick(() => {
                 User.findOne({'local.email': email}, (err, user) => {
                     if (err) {
@@ -58,7 +57,6 @@ module.exports = function (passport) {
         (req, email, password, done) => {
             process.nextTick(() => {
                 User.findOne({'local.email': email}, (err, user) => {
-                    console.log(err);
                     if (err) {
                         return done(err);
                     }
