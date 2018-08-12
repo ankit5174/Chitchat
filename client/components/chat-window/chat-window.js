@@ -19,16 +19,16 @@ export default class ChatWindow extends Component {
         this.onMessageInputKeyDown = this.onMessageInputKeyDown.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.scrollToBottom();
-    // }
-    //
-    // componentDidUpdate() {
-    //     this.scrollToBottom();
-    // }
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
 
     scrollToBottom() {
-        //this.chatMessagesDiv.scrollIntoView({ behavior: 'smooth' });
+        this.scrollDiv && this.scrollDiv.scrollIntoView({behavior: 'smooth'});
     }
 
     handleChange(event) {
@@ -36,7 +36,6 @@ export default class ChatWindow extends Component {
             textMessage: event.target.value
         })
     }
-
 
 
     onMessageInputKeyDown(event) {
@@ -59,38 +58,45 @@ export default class ChatWindow extends Component {
             recentChats,
             chattingTo
         } = this.props;
-        console.log('ct'+chattingTo);
+        console.log('ct' + chattingTo);
         return (
-            <div className="chat-window-conatiner">
+            <div>
                 <div className="recent-chats">
                     <RecentChats/>
                 </div>
-                <div ref={(ref) => {this.chatMessagesDiv = ref}} className="chat-messages">
-                    {recentChats[chattingTo] && recentChats[chattingTo].messages && recentChats[chattingTo].messages.map((message) => {
-                        return (<ChatMessage message={message}/>);
-                    })}
+                {this.props.chattingTo.trim() !== '' &&
+                <div className="chat-window-conatiner">
+                    <div className="chat-messages">
+                        {recentChats[chattingTo] && recentChats[chattingTo].messages && recentChats[chattingTo].messages.map((message) => {
+                            return (<ChatMessage message={message}/>);
+                        })}
+                        <div ref={(ref) => {
+                            this.scrollDiv = ref
+                        }}/>
+                    </div>
+                    <div className="chat-input-message">
+                        <TextareAutosize
+                            innerRef={ref => this.messageInputTextArea = ref}
+                            onChange={this.handleChange}
+                            onKeyDown={this.onMessageInputKeyDown}
+                            placeholder="Type a message"
+                            style={{
+                                resize: 'none',
+                                width: "100%",
+                                marginRight: 25,
+                                maxHeight: 100,
+                                padding: 5
+                            }}
+                            theme={{
+                                textarea: {
+                                    fontSize: '18px',
+                                }
+                            }}
+                        />
+                        <span><i className="fas fa-paper-plane"/></span>
+                    </div>
                 </div>
-                <div className="chat-input-message">
-                    <TextareAutosize
-                        innerRef={ref => this.messageInputTextArea = ref}
-                        onChange={this.handleChange}
-                        onKeyDown={this.onMessageInputKeyDown}
-                        placeholder="Type a message"
-                        style={{
-                            resize: 'none',
-                            width: "100%",
-                            marginRight: 25,
-                            maxHeight: 100,
-                            padding: 5
-                        }}
-                        theme={{
-                            textarea: {
-                                fontSize: '18px',
-                            }
-                        }}
-                    />
-                    <span><i className="fas fa-paper-plane"/></span>
-                </div>
+                }
             </div>
         );
     }

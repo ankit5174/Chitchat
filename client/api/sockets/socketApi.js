@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import cookie from 'react-cookies';
+import config from '../../../config/index';
 import {utils} from "../../util/util";
 import {
     getOnlineUsersSuccess, actionTypes, userDisconnected,
@@ -14,7 +15,7 @@ let socketApi = {
                 cookie.save('user_id', email);
                 cookie.save('name', name);
             }
-            socketApi.socket = io.connect(process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : window.location.protocol + window.location.host);
+            socketApi.socket = io.connect(process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.HOSTNAME_PROD);
         }
     },
     registerEvent: (eventName, store) => {

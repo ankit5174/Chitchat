@@ -4,7 +4,7 @@ import socketApi from "../../api/sockets/socketApi";
 let DEFAULT_STATE = {
     onlineUsers: {},
     recentChats: {},
-    chattingTo: 'ankit51744@gmail.com'
+    chattingTo: ''
 };
 
 const getOnlineUsersSuccess = (state, onlineUsers) => {
