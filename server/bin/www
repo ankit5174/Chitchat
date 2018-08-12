@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 require("babel-register");
-process.env.NODE_ENV !== 'prod' && require('dotenv').config();
+// process.env.NODE_ENV !== 'prod' &&
+ require('dotenv').config();
 var app = require('../app');
 var debug = require('debug')('chitchat:server');
 var http = require('http');
