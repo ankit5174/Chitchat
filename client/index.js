@@ -1,4 +1,4 @@
-// require("babel-polyfill");
+require("babel-polyfill");
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -10,7 +10,7 @@ import 'mdbootstrap/css/mdb.min.css';
 import './index.css';
 import Loading from './components/loading/loading';
 import {persistor, store, history} from "./redux/configureStore";
-import App from './App';
+import App from './app';
 
 ReactDOM.render(<Provider store={store}>
         <PersistGate loading={<Loading/>} persistor={persistor}>
