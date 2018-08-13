@@ -1,4 +1,4 @@
-import React, {Component} from 'React';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import TextareAutosize from 'react-autosize-textarea';
 import RecentChats from '../recent-chats/recent-chats';
