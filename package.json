@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=prod npm run buildProd && cross-env NODE_ENV=prod node server/bin/www",
+    "start": "cross-env NODE_ENV=prod node server/bin/www",
     "startDev": "cross-env NODE_ENV=dev npm run buildDev && cross-env NODE_ENV=dev nodemon server/bin/www",
     "buildDev": "cross-env NODE_ENV=dev webpack --mode developement",
     "buildProd": "cross-env NODE_ENV=prod webpack --mode production",
