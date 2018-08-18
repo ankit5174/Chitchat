@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Route, Switch} from 'react-router-dom';
-
-import Loading from '../../components/loading/loading';
-import SideNavBar from '../../components/side-nav-bar/side-nav-bar';
+import MediaQuery from 'react-responsive';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import './base-page.css';
 import {actionTypes} from "../../redux/chat/chat-actions";
-import ChatWindow from '../../components/chat-window/chat-window-container';
+import WebView from '../../components/web/web-conatiner';
+import MobileView from '../../components/mobile/mobile-container';
 
 export default class BasePage extends Component {
 
     constructor() {
         super();
-        this.state = {
-            sideNavBarOpen: true
-        };
-        this.toggleSideNavBar = this.toggleSideNavBar.bind(this);
     }
 
     componentDidMount() {
@@ -27,42 +22,31 @@ export default class BasePage extends Component {
         this.props.registerEvent(actionTypes.NEW_MESSAGE_RECEIVED);
     }
 
-    toggleSideNavBar() {
-        this.setState((prevState, props) => ({
-            sideNavBarOpen: !prevState.sideNavBarOpen
-        }));
-    }
-
     render() {
-        let {
-            user,
-            loading,
-            onlineUsers,
-            setChattingTo
-        } = this.props;
 
         return (
             <div className="wrapper">
-                <div className="Container">
-                    <SideNavBar sideNavBarOpen={this.state.sideNavBarOpen}
-                                toggleSideNavBar={this.toggleSideNavBar}
-                                user={user}
-                                onlineUsers={onlineUsers}
-                                setChattingTo={setChattingTo}/>
-                    <div className="Middle">
-                        <ChatWindow/>
-                    </div>
-                </div>
+
+                {/*<WebView/>*/}
+                <MediaQuery query="(min-width: 1024px)">
+                    <Switch>
+                        <Route path="/home/w" component={() => <WebView/>}/>
+                        <Redirect to="/home/w"/>
+                    </Switch>
+                </MediaQuery>
+                <MediaQuery query="(max-width: 1024px)">
+                    <Switch>
+                        <Route path="/home/m" component={() => <MobileView/>}/>
+                        <Redirect to="/home/m"/>
+                    </Switch>
+                </MediaQuery>
             </div>
         );
     }
 }
 
 BasePage.propTypes = {
-    loading: PropTypes.bool,
-    onlineUsers: PropTypes.object,
     goOnline: PropTypes.func,
     emitEvent: PropTypes.func,
-    registerEvent: PropTypes.func,
-    setChattingTo: PropTypes.func
+    registerEvent: PropTypes.func
 };

@@ -5,9 +5,7 @@ import {emitEvent, goOnline, registerEvent, setChattingTo} from "../../redux/cha
 
 function mapStateToProps(state) {
     return {
-        user: state.userReducer.basicDetails,
-        loading: state.loadingReducer.loading,
-        onlineUsers: state.chatReducer.onlineUsers
+
     }
 }
 
@@ -15,8 +13,7 @@ function mapDispatchToProps(dispatch) {
     return {
         goOnline: () => {dispatch(goOnline())},
         emitEvent: (eventName, data) => {dispatch(emitEvent(eventName, data))},
-        registerEvent: (eventName) => {dispatch(registerEvent(eventName))},
-        setChattingTo: (chattingTo) => {dispatch(setChattingTo(chattingTo))}
+        registerEvent: (eventName) => {dispatch(registerEvent(eventName))}
     }
 }
 

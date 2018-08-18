@@ -31,7 +31,7 @@ app.use(passport.session());
 app.use('/api', indexRouter(passport));
 app.use('/users', usersRouter);
 
-app.get('*', function (request, response){
+app.get('/*', function (request, response){
     response.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
 });
 

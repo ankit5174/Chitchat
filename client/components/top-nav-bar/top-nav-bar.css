@@ -1,0 +1,21 @@
+/*Flexbox gives us the flexiness we need. The top just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
+.Top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgreen;
+    font-size: 0.9rem;
+    z-index: 10;
+    height: 50px;
+}
+
+.Top > a {
+    flex-grow: 1;
+    display: flex;
+    background-color: #e74c3c;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #f2f2f2;
+}
